@@ -24,6 +24,10 @@ section{padding:52px 0}
 .sub{text-align:center;color:var(--muted);max-width:620px;margin:12px auto 0;font-family:Fraunces,Georgia,serif;font-weight:400;font-size:17px}
 .btn{display:block;width:100%;max-width:420px;margin:28px auto 0;background:var(--btn);color:#fff;text-decoration:none;text-align:center;font-weight:700;font-size:17px;letter-spacing:.02em;padding:17px 22px;border-radius:10px;box-shadow:0 6px 18px rgba(194,103,28,.35);transition:transform .15s,background .15s}
 .btn:active{transform:scale(.98)}
+.pulse{animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(194,103,28,.5)}50%{transform:scale(1.04);box-shadow:0 0 0 12px rgba(194,103,28,0)}}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none}}
+.mock{width:100%;max-width:340px;margin:18px auto 0;border-radius:16px;box-shadow:0 12px 28px rgba(60,35,15,.2)}
 .btn:hover{background:var(--btn2)}
 
 /* Black Friday */
@@ -128,10 +132,12 @@ section{padding:52px 0}
 .box li .b{color:var(--acc);font-weight:700;font-size:11px;letter-spacing:.08em;margin-right:6px}
 .price{text-align:center;margin-top:20px}
 .price .de{color:#9A8878;font-size:16px}
-.price .por{font-family:Fraunces,Georgia,serif;font-size:50px;color:var(--dark);line-height:1.1}
-.price .por small{font-size:22px}
+.price .por{font-family:Fraunces,Georgia,serif;font-size:68px;font-weight:700;color:var(--green);line-height:1.05}
+.price .por small{font-size:28px}
 .price .pix{font-size:13px;color:var(--muted)}
-.secure{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-top:14px}
+.secure{display:flex;justify-content:center;align-items:center;gap:1.6vw;flex-wrap:nowrap;white-space:nowrap;font-size:min(12.5px,2.5vw);color:var(--muted);margin:14px -12px 0}
+.secure span{white-space:nowrap}
+@media(min-width:560px){.secure{gap:16px}}
 .garantia{display:flex;gap:16px;align-items:center;max-width:560px;margin:28px auto 0;background:#fff;border-radius:14px;padding:18px;border:1px solid var(--line)}
 .garantia .selo{flex:0 0 72px;height:72px;border-radius:50%;background:var(--acc);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;line-height:1}
 .garantia .selo b{font-size:26px}
@@ -200,15 +206,16 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
     <div>
       <div class="eyebrow">Brinquedos que atravessam gerações</div>
       <h1>100+ Projetos de Brinquedos de Madeira que as <em>Crianças Vão Amar.</em></h1>
-      <p class="lead">Projetos em PDF com moldes em tamanho real para serra tico-tico, serra de fita ou CNC. Comece neste fim de semana o brinquedo que seu filho ou seu neto <strong>vai guardar para a vida inteira</strong>.</p>
+      <p class="lead">Projetos em PDF com moldes em tamanho real para serra tico-tico, serra de fita ou serra de mão. Comece neste fim de semana o brinquedo que seu filho ou seu neto <strong>vai guardar para a vida inteira</strong>.</p>
+      <img class="mock" src="https://content.payt.com.br/app/uploads/4a11ee87ffee035d2909eeaeef27c6b2.png" width="600" height="600" alt="Guia 100+ Brinquedos de Madeira no tablet e no celular, com os projetos e moldes" loading="eager">
       <ul class="checks">
         <li><strong>100+ projetos originais</strong>: cavalinhos, caminhões, aviões, bichinhos e muito mais</li>
         <li><strong>Moldes em tamanho real</strong>: é só imprimir e riscar direto na madeira</li>
         <li><strong>Medidas em centímetros</strong> e lista de materiais em cada projeto</li>
         <li><strong>Do iniciante ao avançado</strong>: tem projeto para quem nunca pegou numa serra</li>
       </ul>
-      <a class="btn" href="#oferta">QUERO OS 100+ PROJETOS COM 50% OFF →</a>
-      <p class="trust"><span class="stars">★★★★★</span> Acesso imediato · Garantia de 7 dias</p>
+      <a class="btn pulse" href="#oferta">QUERO OS 100+ PROJETOS APENAS →</a>
+      <p class="trust"><span class="stars" style="display:block">★★★★★</span>Acesso imediato · Garantia de 7 dias</p>
     </div>
     <div class="hero-img">
       <img src="assets/imgs/hero.webp" width="900" height="900" alt="Oficina com cavalinho de balanço, caminhão e avião de madeira e projetos impressos na parede" loading="eager" fetchpriority="high">
@@ -318,7 +325,7 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
     <p class="swipe">→ ARRASTE PARA VER MAIS</p>
     <div class="revs">
       <div class="rev"><img src="assets/imgs/rev1.webp" width="720" height="537" alt="Brinquedo de madeira feito com os projetos" loading="lazy"><div class="body"><span class="stars">★★★★★</span><p class="q">Já comprei moldes avulsos que eram basicamente um rascunho, sem medida de verdade. Estes estão em outro nível. Os moldes saíram certinhos no tamanho real e o cavalinho de balanço ficou <strong>melhor do que eu esperava</strong>. Minha neta não sai de cima dele.</p><div class="who"><div class="av">D</div><div><div class="nm">David M.</div><div class="loc">Comprador da coleção original</div></div></div></div></div>
-      <div class="rev"><img src="assets/imgs/rev2.webp" width="720" height="537" alt="Brinquedo de madeira feito com os projetos" loading="lazy"><div class="body"><span class="stars">★★★★★</span><p class="q">Os arquivos funcionaram perfeitamente na minha CNC. Cinco brinquedos prontos até agora, nenhum problema. <strong>Não podia estar mais feliz.</strong></p><div class="who"><div class="av">R</div><div><div class="nm">Robert K.</div><div class="loc">Comprador da coleção original</div></div></div></div></div>
+      <div class="rev"><img src="assets/imgs/rev2.webp" width="720" height="537" alt="Brinquedo de madeira feito com os projetos" loading="lazy"><div class="body"><span class="stars">★★★★★</span><p class="q">Os arquivos funcionaram perfeitamente na minha serra tico-tico. Cinco brinquedos prontos até agora, nenhum problema. <strong>Não podia estar mais feliz.</strong></p><div class="who"><div class="av">R</div><div><div class="nm">Robert K.</div><div class="loc">Comprador da coleção original</div></div></div></div></div>
       <div class="rev"><img src="assets/imgs/rev3.webp" width="720" height="537" alt="Brinquedo de madeira feito com os projetos" loading="lazy"><div class="body"><span class="stars">★★★★★</span><p class="q">Sinceramente, quase não comprei porque nunca tinha feito nada de madeira na vida. Que bom que comprei. As instruções te levam pela mão em cada passo, e meu primeiro caminhão ficou parecendo um caminhão de verdade! <strong>Meu neto leva ele para todo lado, até para a cama.</strong> Não dá para pedir mais que isso.</p><div class="who"><div class="av">J</div><div><div class="nm">James P.</div><div class="loc">Comprador da coleção original</div></div></div></div></div>
       <div class="rev"><img src="assets/imgs/rev4.webp" width="720" height="537" alt="Brinquedo de madeira feito com os projetos" loading="lazy"><div class="body"><span class="stars">★★★★★</span><p class="q">Bom custo-benefício, simples assim. Eu pagava quase o mesmo por um molde de cada vez antes de achar esta coleção. <strong>Agora tenho mais projetos do que fins de semana.</strong> Queria ter achado isso anos atrás.</p><div class="who"><div class="av">W</div><div><div class="nm">William T.</div><div class="loc">Comprador da coleção original</div></div></div></div></div>
       <div class="rev"><img src="assets/imgs/rev6.webp" width="720" height="537" alt="Brinquedo de madeira feito com os projetos" loading="lazy"><div class="body"><span class="stars">★★★★★</span><p class="q">Download imediato, sem esperar. E ter as medidas em centímetros me poupou uma dor de cabeça aqui na Alemanha. <strong>Qualidade excelente.</strong></p><div class="who"><div class="av">H</div><div><div class="nm">Hans G.</div><div class="loc">Comprador da coleção original</div></div></div></div></div>
@@ -352,7 +359,7 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
           <div class="por"><small>R$</small> 10<small>,00</small></div>
           <div class="pix">Pagamento único no Pix ou cartão</div>
         </div>
-        <a class="btn" href="https://checkout.payt.com.br/27fddf8d68ad4d5b51b9f6d5a0f042eb" style="margin-left:auto">QUERO MEUS PROJETOS AGORA →</a>
+        <a class="btn pulse" href="https://checkout.payt.com.br/27fddf8d68ad4d5b51b9f6d5a0f042eb" style="margin-left:auto">QUERO MEUS PROJETOS AGORA →</a>
         <div class="secure"><span>🔒 Compra 100% segura</span><span>⚡ Acesso imediato</span><span>✅ Garantia de 7 dias</span></div>
       </div>
     </div>
