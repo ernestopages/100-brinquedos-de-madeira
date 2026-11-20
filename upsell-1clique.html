@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Oferta especial liberada</title><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0b0705">
+<script src="/funil-config.js"></script>
+<script>(function(){var K='bpm_up_v1',C=window.CFG||{},q=location.search,N=Date.now();
+function ck(){return document.cookie.indexOf(K+'=1')>-1}
+try{if(/[?&]reset=1/.test(q)){localStorage.removeItem(K);sessionStorage.removeItem(K+'_t');document.cookie=K+'=;max-age=0;path=/'}
+if(/[?&]preview=1/.test(q))return;
+var d=JSON.parse(localStorage.getItem(K)||'null');
+if(!d&&ck()&&!/[?&]reset=1/.test(q))d={t:0};
+if(d){document.documentElement.style.visibility='hidden';location.replace(C.ACCESS_URL);return}
+if(!d){localStorage.setItem(K,JSON.stringify({t:N}));document.cookie=K+'=1;max-age=31536000;path=/;SameSite=Lax'}}catch(e){}})();</script>
+<link rel="preload" href="/assets/funil/m900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/funil/poster-upsell.webp" as="image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A8%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:M;src:url(/assets/funil/m800.woff2) format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:M;src:url(/assets/funil/m900.woff2) format('woff2');font-weight:900;font-display:swap}
+:root{--g:#E9A23B;--g2:#FFD27A;--line:#4a3420;--tx:#F7F0E6;--mu:#c9b79e;--gr:#22C55E;--red:#FF5A5F}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;background:#0b0705}
+body{background:radial-gradient(ellipse at 50% -10%,#4a2c14 0%,#1c120a 45%,#0b0705 100%) fixed;color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh}
+.wrap{max-width:540px;margin:0 auto;padding:0 16px 120px}
+.alert{background:linear-gradient(90deg,#7a1418,#b51f25,#7a1418);color:#fff;text-align:center;font:800 13px/1.3 M,system-ui;letter-spacing:.06em;padding:9px 12px;text-transform:uppercase}
+.alert b{color:#FFD84D}
+.steps{display:flex;align-items:center;justify-content:center;gap:6px;margin:18px 0 6px;font:700 11px/1.2 system-ui;color:var(--mu);text-transform:uppercase;letter-spacing:.03em}
+.st{display:flex;flex-direction:column;align-items:center;gap:6px;width:92px;text-align:center}
+.st i{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:900 14px M,system-ui;font-style:normal;background:#241810;border:2px solid #5a4024;color:var(--mu)}
+.st.ok i{background:var(--gr);border-color:var(--gr);color:#05230f}
+.st.now i{background:var(--g);border-color:var(--g2);color:#1a0f05;box-shadow:0 0 0 4px rgba(233,162,59,.25)}
+.st.now{color:var(--g2)}
+.ln{flex:0 0 26px;height:2px;background:#4a3420;margin-bottom:18px}
+.ln.ok{background:var(--gr)}
+.kick{display:inline-block;margin:14px auto 0;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.5);color:#7CF0A6;font:800 13px M,system-ui;padding:6px 14px;border-radius:99px}
+h1{font:900 25px/1.15 M,system-ui;text-align:center;margin:12px 0 6px;letter-spacing:-.3px}
+h1 em{font-style:normal;background:linear-gradient(180deg,#FFF1C8,#FFD27A 40%,#E9A23B 70%,#B8741C);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{text-align:center;color:var(--mu);font-size:15px;margin-bottom:14px}
+.sub b{color:#fff}
+#player{position:relative;width:100%;aspect-ratio:3/4;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 0 0 2px rgba(233,162,59,.6),0 20px 60px rgba(0,0,0,.7);cursor:pointer}
+#player video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+#unmute{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);z-index:3;transition:opacity .3s}
+#unmute.gone{opacity:0;pointer-events:none}
+#unmute .box{background:linear-gradient(180deg,#FFD27A,#E9A23B);color:#1a0f05;border-radius:20px;padding:18px 22px;text-align:center;font:900 18px/1.2 M,system-ui;box-shadow:0 12px 40px rgba(0,0,0,.6);animation:pulse 1.4s ease-in-out infinite;max-width:78%}
+#unmute .box span{display:block;font-size:44px;line-height:1;margin-bottom:8px}
+#unmute .box small{display:block;font:700 13px system-ui;margin-top:6px;opacity:.85}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+#playicon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0;pointer-events:none;transition:opacity .2s}
+#playicon.on{opacity:1}
+#playicon b{width:84px;height:84px;border-radius:50%;background:rgba(0,0,0,.6);border:3px solid var(--g);display:flex;align-items:center;justify-content:center;color:var(--g2);font-size:34px;padding-left:6px}
+.pb{height:6px;background:#2a1d12;border-radius:0 0 8px 8px;overflow:hidden;margin-top:-2px;position:relative;z-index:4}
+#pbar{height:100%;width:0;background:linear-gradient(90deg,#E9A23B,#FFD27A)}
+.hint{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--mu);font-size:13px;margin-top:10px;text-align:center}
+.hint i{flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 1s infinite;font-style:normal}
+@keyframes blink{50%{opacity:.2}}
+#offer{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+#offer.on{opacity:1;transform:none}
+.price{text-align:center;margin:26px 0 12px}
+.price .de{color:var(--mu);font:800 18px M,system-ui}
+.price .de s{text-decoration-color:var(--red);text-decoration-thickness:3px}
+.price .por{font:900 54px/1 M,system-ui;background:linear-gradient(180deg,#FFF1C8,#FFD27A 40%,#E9A23B 70%,#B8741C);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:4px}
+.price .tag{display:inline-block;margin-top:8px;background:var(--g);color:#1a0f05;font:900 12px M,system-ui;letter-spacing:.08em;padding:6px 12px;border-radius:99px}
+.cta{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;min-height:76px;padding:14px 16px;border-radius:18px;text-decoration:none;color:#fff;text-align:center;background:linear-gradient(180deg,#3BE07A,#1DB954 60%,#169a45);box-shadow:0 7px 0 #0f6b30,0 18px 40px rgba(34,197,94,.35);font:900 19px/1.15 M,system-ui;text-shadow:0 2px 0 rgba(0,0,0,.2);animation:pulse 1.6s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+.cta small{font:700 13px system-ui;opacity:.95;margin-top:4px;text-shadow:none}
+.cta:active{transform:translateY(4px);box-shadow:0 3px 0 #0f6b30}
+.safe{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;color:var(--mu);font-size:12.5px;margin:14px 0 6px}
+.no{display:block;text-align:center;color:#9c8f7c;font-size:14px;text-decoration:underline;margin:18px auto 4px;padding:8px;max-width:420px;line-height:1.35}
+.oneclick{min-height:60px}.oneclick:empty{display:none}
+.box2{background:linear-gradient(180deg,#2a1d12,#1a120b);border:1px solid var(--line);border-radius:20px;padding:18px;margin-top:26px}
+.box2 h2{font:900 18px M,system-ui;text-align:center;margin-bottom:14px;color:var(--g2);text-transform:uppercase;letter-spacing:.04em}
+.it{display:flex;gap:14px;align-items:center;padding:12px 0;border-top:1px solid #3a2a1a}
+.it:first-of-type{border-top:0}
+.it img{width:84px;height:auto;border-radius:10px;flex:0 0 84px;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.it h3{font:800 16px/1.2 M,system-ui;margin-bottom:3px}
+.it p{font-size:14px;color:var(--mu);line-height:1.4}
+.it .off{opacity:.45;filter:grayscale(1)}
+.chip{display:inline-block;font:800 11px M,system-ui;padding:3px 8px;border-radius:99px;margin-left:4px;vertical-align:2px}
+.chip.ok{background:rgba(34,197,94,.15);color:#7CF0A6}.chip.x{background:rgba(255,90,95,.15);color:#ff9a9d}.chip.b{background:rgba(233,162,59,.18);color:#FFD27A}
+.warn{margin-top:18px;text-align:center;font-size:13.5px;color:#e6d4b6;background:rgba(255,90,95,.08);border:1px dashed rgba(255,90,95,.5);border-radius:14px;padding:12px}
+footer{text-align:center;color:#7d6c58;font-size:12px;margin-top:34px;line-height:1.6}
+#sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(0deg,rgba(11,7,5,.98),rgba(11,7,5,.85));border-top:1px solid #4a3420;transform:translateY(110%);transition:transform .35s}
+#sticky.on{transform:none}
+#sticky .cta{min-height:58px;font-size:16px;animation:none;max-width:540px;margin:0 auto;box-shadow:0 5px 0 #0f6b30}
+@media(min-width:768px){h1{font-size:30px}.wrap{padding-top:6px}}
+</style>
+<script src="https://indecfy.vercel.app/t.js" data-pixel="1458665449774810" data-value="47.00" data-checkout="payt.com.br,zuptos.com.br" defer></script>
+</head>
+<body data-key="bpm_up_v1" data-reveal="REVEAL_UPSELL" data-back="/downsell-1clique">
+<div class="alert">⚠️ <b>Não feche</b> nem atualize esta página</div>
+<main class="wrap">
+<div class="steps"><div class="st ok"><i>✓</i>Compra aprovada</div><div class="ln ok"></div><div class="st now"><i>2</i>Vídeo de acesso</div><div class="ln"></div><div class="st"><i>3</i>Acesso ao conteúdo</div></div>
+<div style="text-align:center"><div class="kick">✅ Pagamento aprovado</div>
+<h1>ESPERE! Assista ao vídeo <em>antes de acessar</em> o seu 100+ Brinquedos de Madeira</h1>
+<p class="sub">Liberei uma <b>condição especial</b> que aparece <b>só uma vez</b>, aqui nesta página.</p></div>
+<div id="player"><video id="vsl" src="/assets/funil/upsell.mp4" poster="/assets/funil/poster-upsell.webp" playsinline webkit-playsinline preload="metadata" muted autoplay></video>
+ <div id="unmute"><div class="box"><span>🔊</span>Seu vídeo já começou<small>Toque para ouvir</small></div></div>
+ <div id="playicon"><b>▶</b></div></div>
+<div class="pb"><div id="pbar"></div></div>
+<div class="hint"><i></i>Assista até o final para liberar o seu acesso ao 100+ Brinquedos de Madeira.</div>
+<section id="offer" hidden>
+ <div id="cta-anchor"></div>
+ <div class="price"><div class="de">De <s>R$ 97</s> por apenas</div><div class="por">R$ 47</div><div class="tag">🔓 SÓ NESTA PÁGINA</div></div>
+ <div class="oneclick" id="oneclick"><!-- BOTÃO 1 CLIQUE DA PAYT (upsell): colar aqui quando a página 1 clique for criada --></div>
+<a class="cta" id="fallback" data-checkout="CHECKOUT_UPSELL">SIM! QUERO O KIT DE PINTURA<small>Adicionar ao meu pedido por R$ 47</small></a>
+<script>(function(){var s=document.getElementById("oneclick");if(s&&s.children.length){var f=document.getElementById("fallback");if(f)f.style.display="none"}})();</script>
+ <div class="safe"><span>🔒 Pagamento seguro</span><span>⚡ Acesso imediato</span><span>📱 Direto no seu celular</span></div>
+ <a class="no" data-go="/downsell-1clique">Não, obrigado. Não quero essa oferta, quero só acessar o meu 100+ Brinquedos de Madeira ›</a>
+ <div class="box2"><h2>O que você recebe</h2>
+<div class="it"><img src="/assets/funil/kit.webp" width="84" height="118" loading="lazy" alt="Kit de Pintura e Personalização"><div><h3>Kit de Pintura e Personalização</h3><p>Passo a passo de pintura, tinta e verniz certos, pincéis, 12 paletas de cores, gabaritos de rostinhos e alfabeto para o nome da criança.</p></div></div>
+<div class="it"><img src="/assets/funil/kp.webp" width="84" height="118" loading="lazy" alt="Kit presente"><div><h3>Kit presente para imprimir</h3><p>Etiquetas e embalagem para o brinquedo sair da sua mão com cara de loja.</p></div></div>
+<div class="it"><img src="/assets/funil/b1.webp" width="84" height="118" loading="lazy" alt="Bônus 1"><div><h3>Como Vender seus Brinquedos Pintados <span class="chip b">BÔNUS</span></h3><p>Preço sem prejuízo, fotos com o celular, mensagens prontas e o que a lei pede.</p></div></div>
+<div class="it"><img src="/assets/funil/b2.webp" width="84" height="118" loading="lazy" alt="Bônus 2"><div><h3>Restauro de Brinquedos Antigos <span class="chip b">BÔNUS</span></h3><p>Lixar, consertar e repintar os brinquedos antigos da família.</p></div></div></div>
+ <div class="warn">⏳ Ao sair desta página, essa condição termina. Depois, o kit com os bônus sai por R$ 97.</div>
+</section>
+<footer>Brinquedos Pintados à Mão • Todos os direitos reservados<br>Confira sempre na embalagem se a tinta é indicada para brinquedo infantil.</footer>
+</main>
+<div id="sticky" hidden><a class="cta" data-checkout="CHECKOUT_UPSELL">SIM! QUERO POR R$ 47</a></div>
+<script src="/vsl.js?v=1" defer></script>
+</body></html>
