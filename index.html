@@ -71,6 +71,7 @@ section{padding:52px 0}
 .cat h3{color:#fff;font-size:15px}
 
 /* Projeto + carrossel */
+.plan .grid>*{min-width:0}
 .plan .grid{display:grid;gap:28px;margin-top:30px;align-items:center}
 .car{position:relative;max-width:440px;margin:0 auto;width:100%;overflow:hidden;padding:8px 0 22px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .car .track{display:flex;width:max-content;animation:marq 100s linear infinite;will-change:transform}
@@ -128,7 +129,6 @@ section{padding:52px 0}
 .swipe span:first-child{animation-name:nudgeL}
 @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
 @keyframes nudgeL{0%,100%{transform:translateX(0)}50%{transform:translateX(-5px)}}
-.swipe small{display:block;font-weight:500;letter-spacing:.02em;color:var(--muted);font-size:12px;margin-top:3px}
 @media(prefers-reduced-motion:reduce){.swipe span{animation:none}}
 
 /* Planos */
@@ -433,7 +433,7 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
     <button class="pn pp" type="button" aria-label="Anterior">‹</button>
     <button class="pn px" type="button" aria-label="Próximo">›</button>
     </div>
-    <p class="swipe"><span>←</span> ARRASTE PARA O LADO <span>→</span><small>Toque e segure para pausar e ler</small></p>
+    <p class="swipe"><span>←</span> ARRASTE PARA O LADO <span>→</span></p>
   </div>
 </section>
 
