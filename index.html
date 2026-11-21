@@ -116,10 +116,20 @@ section{padding:52px 0}
 .bonus .note b{color:#F5A15C}
 
 /* Depoimentos */
-.prints{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;padding:6px 20px 18px;margin:24px -20px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.pwrap{position:relative;margin:24px -20px 0}
+.prints{display:flex;gap:12px;overflow-x:auto;padding:6px 20px 18px;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain}
 .prints::-webkit-scrollbar{display:none}
-.dp{flex:0 0 74%;max-width:290px;scroll-snap-align:start;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(60,35,15,.16);cursor:zoom-in}
-.dp img{width:100%;height:auto;display:block;aspect-ratio:941/1672}
+.dp{flex:0 0 74%;max-width:290px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(60,35,15,.16);cursor:zoom-in}
+.dp img{width:100%;height:auto;display:block;aspect-ratio:941/1672;-webkit-user-drag:none;user-select:none}
+.pwrap .pn{position:absolute;bottom:26px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.95);color:var(--dark);font-size:26px;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.28);z-index:2;display:flex;align-items:center;justify-content:center;padding-bottom:3px}
+.pwrap .pp{left:6px}.pwrap .px{right:6px}
+.swipe{text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.08em;color:var(--acc);margin-top:2px}
+.swipe span{display:inline-block;animation:nudge 1.6s ease-in-out infinite}
+.swipe span:first-child{animation-name:nudgeL}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@keyframes nudgeL{0%,100%{transform:translateX(0)}50%{transform:translateX(-5px)}}
+.swipe small{display:block;font-weight:500;letter-spacing:.02em;color:var(--muted);font-size:12px;margin-top:3px}
+@media(prefers-reduced-motion:reduce){.swipe span{animation:none}}
 
 /* Planos */
 .oferta{background:var(--bg)}
@@ -411,6 +421,7 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
     <div class="eyebrow">Quem constrói, conta</div>
     <h2>O que dizem os <em>construtores</em></h2>
     <p class="sub" style="font-size:15px">Recebemos mensagens como essas todos os dias, e logo será você nos enviando também.</p>
+    <div class="pwrap">
     <div class="prints">
       <div class="dp"><img src="assets/imgs/dep1.webp" width="720" height="1279" alt="Print de mensagem de WhatsApp de cliente com a coleção de projetos" loading="lazy"></div>
       <div class="dp"><img src="assets/imgs/dep2.webp" width="720" height="1279" alt="Print de mensagem de WhatsApp de cliente com a coleção de projetos" loading="lazy"></div>
@@ -419,6 +430,10 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
       <div class="dp"><img src="assets/imgs/dep5.webp" width="720" height="1279" alt="Print de mensagem de WhatsApp de cliente com a coleção de projetos" loading="lazy"></div>
       <div class="dp"><img src="assets/imgs/dep6.webp" width="720" height="1279" alt="Print de mensagem de WhatsApp de cliente com a coleção de projetos" loading="lazy"></div>
     </div>
+    <button class="pn pp" type="button" aria-label="Anterior">‹</button>
+    <button class="pn px" type="button" aria-label="Próximo">›</button>
+    </div>
+    <p class="swipe"><span>←</span> ARRASTE PARA O LADO <span>→</span><small>Toque e segure para pausar e ler</small></p>
   </div>
 </section>
 
@@ -598,8 +613,50 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
   var lb=document.getElementById('lb');
   [].forEach.call(sl,function(fig){fig.addEventListener('click',function(){var im=lb.querySelector('img');im.src=fig.querySelector('img').src;im.alt=fig.querySelector('img').alt;openM(lb);});});
 
-  /* ampliar print de depoimento */
-  [].forEach.call(document.querySelectorAll('.dp'),function(c){c.addEventListener('click',function(){var im=lb.querySelector('img'),o=c.querySelector('img');im.src=o.src;im.alt=o.alt;openM(lb);});});
+  /* prints de depoimento: andam devagar, pausam ao tocar/segurar, arrastam livre, ampliam no toque */
+  (function(){
+    var pr=document.querySelector('.prints');if(!pr)return;
+    var orig=[].slice.call(pr.children);
+    for(var k=0;k<2;k++)orig.forEach(function(c){var d=c.cloneNode(true);d.setAttribute('aria-hidden','true');pr.appendChild(d);});
+    var n=orig.length,setW=0,step=0;
+    function measure(){setW=pr.children[n].offsetLeft-pr.children[0].offsetLeft;step=pr.children[1].offsetLeft-pr.children[0].offsetLeft;}
+    measure();pr.scrollLeft=setW;
+    var pos=setW,held=false,lastAct=0,SPEED=20,last=performance.now(),vis=true,moved=false;
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+    function act(extra){lastAct=performance.now()+(extra||0);}
+    pr.addEventListener('touchstart',function(){held=true;moved=false;act();},{passive:true});
+    ['touchend','touchcancel'].forEach(function(ev){pr.addEventListener(ev,function(){held=false;act();},{passive:true});});
+    /* mouse (desktop): pausa ao passar o mouse, arrasta segurando */
+    var down=false,sx=0,ssl=0;
+    pr.addEventListener('mouseenter',function(){held=true;});
+    pr.addEventListener('mouseleave',function(){held=false;down=false;act();});
+    pr.addEventListener('mousedown',function(e){if(e.button!==0)return;down=true;moved=false;sx=e.clientX;ssl=pr.scrollLeft;});
+    window.addEventListener('mousemove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>5)moved=true;pr.scrollLeft=ssl-dx;});
+    window.addEventListener('mouseup',function(){down=false;});
+    pr.addEventListener('dragstart',function(e){e.preventDefault();});
+    var pp=document.querySelector('.pwrap .pp'),px=document.querySelector('.pwrap .px');
+    pp.addEventListener('click',function(){pr.scrollTo({left:pr.scrollLeft-step,behavior:'smooth'});act(1200);});
+    px.addEventListener('click',function(){pr.scrollTo({left:pr.scrollLeft+step,behavior:'smooth'});act(1200);});
+    window.addEventListener('resize',function(){var r=pr.scrollLeft/(setW||1);measure();pos=pr.scrollLeft=r*setW;});
+    if('IntersectionObserver' in window){new IntersectionObserver(function(es){vis=es[0].isIntersecting;},{threshold:.1}).observe(pr);}
+    function tick(now){
+      var dt=Math.min(now-last,50)/1000;last=now;
+      var sl=pr.scrollLeft;
+      if(Math.abs(sl-pos)>1.5){pos=sl;act();}   /* a pessoa mexeu: respeita */
+      if(!held&&!down){
+        if(pos<setW*.5){pos+=setW;pr.scrollLeft=pos;}
+        else if(pos>setW*1.5){pos-=setW;pr.scrollLeft=pos;}
+      }
+      if(!held&&!down&&vis&&!reduce&&now-lastAct>700){pos+=SPEED*dt;pr.scrollLeft=pos;}
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    pr.addEventListener('click',function(e){
+      if(moved){moved=false;return;}
+      var c=e.target.closest('.dp');if(!c)return;
+      var im=lb.querySelector('img'),o=c.querySelector('img');im.src=o.src;im.alt=o.alt;openM(lb);
+    });
+  })();
 
   /* clicou no plano de R$ 9,90: oferece o completo por R$ 14,90 */
   var pop1=document.getElementById('pop1'), pop2=document.getElementById('pop2');
