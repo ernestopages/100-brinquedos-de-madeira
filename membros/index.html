@@ -107,7 +107,7 @@ const it = (k, title, sub, name) => ({ id: k, title, sub, file: PDF[k], thumb: '
 /* PRODUTOS. kind 'main' = o que ela comprou primeiro; 'bump' = os que podem ficar bloqueados.
    buy = link de compra. Hoje vai direto para o checkout; depois pode trocar por uma página de vendas. */
 const PRODUCTS = [
-  { id: 'brq', kind: 'main', title: '100+ Brinquedos de Madeira', cover: 'c-main.webp',
+  { id: 'brq', kind: 'main', title: '100+ Brinquedos de Madeira', cover: 'c-main2.webp',
     desc: '102 projetos com moldes em tamanho real, medidas, lista de materiais e passo a passo.',
     sections: [
       { title: 'Comece por aqui', items: [ it('g0', 'Comece aqui e índice', 'Leia primeiro · 7 páginas', 'Comece Aqui e Indice') ] },
@@ -192,7 +192,7 @@ function logout() { store.del('bpm_email'); S.email = null; S.owned = []; locati
 /* ---------- telas ---------- */
 function viewLogin(msg) {
   return `<div class="login"><div class="box">
-    <img class="cv" src="${A}img/c-main.webp" alt="">
+    <img class="cv" src="${A}img/c-main2.webp" alt="">
     <h1>Seus guias de <em>brinquedos de madeira</em></h1>
     <p>Digite o e-mail que você usou na compra para entrar. Não precisa de senha.</p>
     <form id="f" autocomplete="on">
