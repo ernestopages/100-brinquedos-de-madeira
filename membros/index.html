@@ -148,12 +148,12 @@ svg{display:block;flex:none}
    Para trocar links de compra, preços ou textos, edite só este bloco.
    ===================================================================== */
 const CFG = {
-  SUPORTE_EMAIL: '',
+  SUPORTE_EMAIL: 'suportehumanizado26@gmail.com',
   SUPA_URL: 'https://xdhxqwuqqragiokbpomx.supabase.co',
   SUPA_KEY: 'sb_publishable_mkRibeQMVu9fQ3eS1ZoiSA_uHwdsDoY'
 };
 const A = 'assets/';
-const PDF = {g0:'g0-f2892e9864.pdf',g1:'g1-b19aefad2f.pdf',g2:'g2-29e742ecdd.pdf',g3:'g3-54de8f70ac.pdf',g4:'g4-5a6d75bec0.pdf',g5:'g5-e01ece9355.pdf',g6:'g6-8fa03cc528.pdf',g7:'g7-3e09cb9255.pdf',g8:'g8-e16770d6b9.pdf',b1:'b1-9830156dcd.pdf',b2:'b2-8af666e4eb.pdf',b3:'b3-f72a0d1612.pdf',pallet:'pallet-b464316cc1.pdf',antigo:'antigo-03dc7f7c7e.pdf',jogos:'jogos-d382322bc4.pdf'};
+const PDF = {g0:'g0-f2892e9864.pdf',g1:'g1-b19aefad2f.pdf',g2:'g2-29e742ecdd.pdf',g3:'g3-54de8f70ac.pdf',g4:'g4-5a6d75bec0.pdf',g5:'g5-e01ece9355.pdf',g6:'g6-8fa03cc528.pdf',g7:'g7-3e09cb9255.pdf',g8:'g8-e16770d6b9.pdf',b1:'b1-9830156dcd.pdf',b2:'b2-8af666e4eb.pdf',b3:'b3-f72a0d1612.pdf',pallet:'pallet-b464316cc1.pdf',k1:'k1-7a135253cc.pdf',k2:'k2-565ec0cdc2.pdf',k3:'k3-975670e748.pdf',k4:'k4-0c81559eac.pdf',antigo:'antigo-03dc7f7c7e.pdf',jogos:'jogos-d382322bc4.pdf'};
 const it = (k, title, sub, name) => ({ id: k, title, sub, file: PDF[k], thumb: 't-' + k + '.webp', name: name || title });
 
 /* PRODUTOS. kind 'main' = o que ela comprou primeiro; 'bump' = os que podem ficar bloqueados.
@@ -176,6 +176,16 @@ const PRODUCTS = [
         it('b1', 'Bônus 1 · Guia do Iniciante', '11 páginas', 'Bonus 1 - Guia do Iniciante'),
         it('b2', 'Bônus 2 · Acabamentos Seguros e Madeiras Atóxicas', '8 páginas', 'Bonus 2 - Acabamentos Seguros'),
         it('b3', 'Bônus 3 · Certificado do Brinquedo de Família', '7 páginas', 'Bonus 3 - Certificado') ] }
+    ] },
+  { id: 'kit', kind: 'bump', title: 'Kit de Pintura e Personalização', cover: 'c-kit.webp',
+    desc: 'Pinte e personalize seus brinquedos: tintas e vernizes certos, paletas, rostinhos e alfabeto para imprimir. Com 3 bônus.',
+    price: 'R$ 57,00', buy: 'https://checkout.payt.com.br/d2b4d097de04f1111a663f1e398e3a27',
+    blocks: [
+      { type: 'docs', title: 'Seu guia', items: [ it('k1', 'Pinte e Personalize seus Brinquedos', 'Guia completo · 18 páginas', 'Kit de Pintura e Personalizacao') ] },
+      { type: 'docs', title: 'Seus 3 bônus', sep: true, items: [
+        it('k2', 'Bônus 1 · Kit Presente para Imprimir', '7 páginas', 'Bonus 1 - Kit Presente'),
+        it('k3', 'Bônus 2 · Como Vender seus Brinquedos Pintados', '9 páginas', 'Bonus 2 - Como Vender'),
+        it('k4', 'Bônus 3 · Restauro de Brinquedos Antigos', '7 páginas', 'Bonus 3 - Restauro') ] }
     ] },
   { id: 'pallet', kind: 'bump', title: '50 Projetos de Pallet', cover: 'c-pallet.webp',
     desc: 'Móveis e peças úteis para casa, varanda e quintal, feitos com pallet.',
