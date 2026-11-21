@@ -75,13 +75,14 @@ svg{display:block;flex:none}
 .phero p{color:var(--mu);font-size:16px;margin-top:6px}
 .blk{margin:26px 0 12px;font:900 13px M;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px}
 .blk:after{content:"";flex:1;height:1px;background:var(--line)}
-.folder{display:flex;align-items:center;gap:16px;padding:20px 18px;border-radius:22px;background:linear-gradient(135deg,#F5B544,#E27B2C);color:#2b1608;box-shadow:0 12px 30px rgba(226,123,44,.3);margin-bottom:6px}
+.sep{height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:30px 0 4px;opacity:.7}
+.folder{display:flex;align-items:center;gap:16px;padding:26px 18px;margin-top:22px;border-radius:22px;background:linear-gradient(135deg,#F5B544,#E27B2C);color:#2b1608;box-shadow:0 12px 30px rgba(226,123,44,.3);margin-bottom:6px}
 .folder:active{transform:scale(.98)}
-.folder .fi{width:60px;height:60px;border-radius:18px;background:rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;flex:none}
+.folder .fi{width:76px;height:76px;border-radius:18px;background:rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;flex:none}
 .folder .ft{flex:1}
-.folder b{display:block;font:900 22px M}
+.folder b{display:block;font:900 26px M}
 .folder small{display:block;font-size:16px;margin-top:3px;font-weight:600}
-.folder .go{width:44px;height:44px;border-radius:50%;background:#2b1608;color:#FFD27A;display:flex;align-items:center;justify-content:center;flex:none}
+.folder .go{width:52px;height:52px;border-radius:50%;background:#2b1608;color:#FFD27A;display:flex;align-items:center;justify-content:center;flex:none}
 .tip{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:14px;padding:13px 15px;font-size:16px;margin:16px 0 4px;color:var(--ink)}
 .doc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:14px}
 .dh{display:flex;gap:14px;align-items:center;margin-bottom:14px}
@@ -162,8 +163,7 @@ const PRODUCTS = [
   { id: 'brq', kind: 'main', title: '100+ Brinquedos de Madeira', short: 'Guia principal', cover: 'c-main2.webp',
     desc: '102 projetos com moldes em tamanho real, medidas e passo a passo.',
     blocks: [
-      { type: 'docs', title: 'Comece por aqui', items: [ it('g0', 'Comece aqui e índice', 'Leia primeiro · 7 páginas', 'Comece Aqui e Indice') ] },
-      { type: 'folder', id: 'projetos', title: 'Projetos', sub: '8 guias com os 102 moldes', head: 'Seus projetos', items: [
+      { type: 'folder', id: 'projetos', title: 'Acessar projetos', sub: 'Comece aqui + 8 guias com os 102 moldes', head: 'Seus projetos', first: [ it('g0', 'Comece aqui e índice', 'Leia primeiro · 7 páginas', 'Comece Aqui e Indice') ], items: [
         it('g1', 'Cavalinhos e Bichinhos', '15 projetos · 46 páginas', 'Guia 1 - Cavalinhos e Bichinhos'),
         it('g2', 'Caminhões, Carros e Veículos', '21 projetos · 47 páginas', 'Guia 2 - Caminhoes Carros e Veiculos'),
         it('g3', 'Aviões e Barcos', '12 projetos · 34 páginas', 'Guia 3 - Avioes e Barcos'),
@@ -172,26 +172,26 @@ const PRODUCTS = [
         it('g6', 'Para as Meninas', '9 projetos · 37 páginas', 'Guia 6 - Para as Meninas'),
         it('g7', 'Natal e Datas Especiais', '15 projetos · 39 páginas', 'Guia 7 - Natal e Datas Especiais'),
         it('g8', 'Quebra-cabeças e Jogos', '10 projetos · 37 páginas', 'Guia 8 - Quebra-cabecas e Jogos') ] },
-      { type: 'docs', title: 'Seus 3 bônus', items: [
+      { type: 'docs', title: 'Seus 3 bônus', sep: true, items: [
         it('b1', 'Bônus 1 · Guia do Iniciante', '11 páginas', 'Bonus 1 - Guia do Iniciante'),
         it('b2', 'Bônus 2 · Acabamentos Seguros e Madeiras Atóxicas', '8 páginas', 'Bonus 2 - Acabamentos Seguros'),
         it('b3', 'Bônus 3 · Certificado do Brinquedo de Família', '7 páginas', 'Bonus 3 - Certificado') ] }
     ] },
   { id: 'pallet', kind: 'bump', title: '50 Projetos de Pallet', cover: 'c-pallet.webp',
     desc: 'Móveis e peças úteis para casa, varanda e quintal, feitos com pallet.',
-    price: 'R$ 37,00', buy: 'https://checkout.payt.com.br/7ab1d58dc1877358ceaac111ad8342e0',
+    price: 'R$ 12,90', old: 'R$ 37,00', buy: 'https://checkout.payt.com.br/7ab1d58dc1877358ceaac111ad8342e0',
     blocks: [ { type: 'docs', title: 'Seu guia', items: [ it('pallet', '50 Projetos de Pallet', 'Guia completo · 57 páginas', '50 Projetos de Pallet') ] } ] },
   { id: 'antigo', kind: 'bump', title: '20 Brinquedos de Antigamente', cover: 'c-antigo.webp',
     desc: 'Pião, ioiô, bilboquê, pernas de pau e carrinho de rolimã.',
-    price: 'R$ 25,00', buy: 'https://checkout.payt.com.br/fc7846c1f47b78dbe7f9595bd44539d7',
+    price: 'R$ 10,90', old: 'R$ 25,00', buy: 'https://checkout.payt.com.br/fc7846c1f47b78dbe7f9595bd44539d7',
     blocks: [ { type: 'docs', title: 'Seu guia', items: [ it('antigo', '20 Brinquedos de Antigamente', 'Guia completo · 47 páginas', '20 Brinquedos de Antigamente') ] } ] },
   { id: 'jogos', kind: 'bump', title: '25 Jogos de Tabuleiro em Madeira', cover: 'c-jogos.webp',
     desc: 'Damas, xadrez, trilha, ludo, dominó e mancala.',
-    price: 'R$ 19,90', buy: 'https://checkout.payt.com.br/be248e45f4549e9c64f93b8654a91daa',
+    price: 'R$ 8,90', old: 'R$ 19,90', buy: 'https://checkout.payt.com.br/be248e45f4549e9c64f93b8654a91daa',
     blocks: [ { type: 'docs', title: 'Seu guia', items: [ it('jogos', '25 Jogos de Tabuleiro em Madeira', 'Guia completo · 32 páginas', '25 Jogos de Tabuleiro em Madeira') ] } ] }
 ];
 const DOCS = {};
-PRODUCTS.forEach(p => p.blocks.forEach(b => b.items.forEach(i => { DOCS[i.id] = { item: i, product: p }; })));
+PRODUCTS.forEach(p => p.blocks.forEach(b => (b.first || []).concat(b.items).forEach(i => { DOCS[i.id] = { item: i, product: p }; })));
 
 /* ---------- utilidades ---------- */
 const $ = s => document.querySelector(s);
@@ -292,8 +292,8 @@ function viewProduct(p) {
   let h = topBack(p.title) + `<div class="wrap">
     <div class="phero"><img src="${A}img/${p.cover}" alt=""><div><h1>${esc(p.title)}</h1><p>${esc(p.desc)}</p></div></div>`;
   p.blocks.forEach(b => {
-    if (b.type === 'docs') { h += `<div class="blk">${esc(b.title)}</div>` + b.items.map(docCard).join(''); }
-    else { h += `<div class="blk">Acessar</div><a class="folder" href="#/p/${p.id}/f/${b.id}"><span class="fi">${ic('fold', 34)}</span><span class="ft"><b>${esc(b.title)}</b><small>${esc(b.sub)}</small></span><span class="go">${ic('go', 22)}</span></a>`; }
+    if (b.type === 'docs') { h += (b.sep ? '<div class="sep"></div>' : '') + `<div class="blk">${esc(b.title)}</div>` + b.items.map(docCard).join(''); }
+    else { h += `<a class="folder" href="#/p/${p.id}/f/${b.id}"><span class="fi">${ic('fold', 46)}</span><span class="ft"><b>${esc(b.title)}</b><small>${esc(b.sub)}</small></span><span class="go">${ic('go', 26)}</span></a>`; }
   });
   h += `<div class="foot">${CFG.SUPORTE_EMAIL ? 'Suporte: ' + esc(CFG.SUPORTE_EMAIL) : ''}</div></div>`;
   return h;
@@ -302,7 +302,7 @@ function viewFolder(p, b) {
   return topBack(b.title) + `<div class="wrap">
     <div class="phero"><img src="${A}img/${p.cover}" alt=""><div><h1>${esc(b.head || b.title)}</h1><p>${esc(b.sub)}</p></div></div>
     <div class="tip">Para <b>imprimir</b>, toque em <b>Imprimir</b> no guia que você quer. As folhas saem em <b>tamanho real</b>, prontas para recortar.</div>
-    <div class="blk">Escolha um guia</div>${b.items.map(docCard).join('')}<div class="foot"></div></div>`;
+    ${(b.first || []).length ? `<div class="blk">Comece por aqui</div>${b.first.map(docCard).join('')}` : ''}<div class="blk">Os 8 guias de projetos</div>${b.items.map(docCard).join('')}<div class="foot"></div></div>`;
 }
 
 /* ---------- arquivos: baixar, imprimir, ver ---------- */
