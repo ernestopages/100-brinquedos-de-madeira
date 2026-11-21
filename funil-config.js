@@ -4,8 +4,8 @@ Brinquedos Pintados à Mão (upsell e downsell do 100+ Brinquedos de Madeira)
 ===================================================== */
 window.CFG = {
 // Para onde a pessoa vai quando recusa tudo, já viu a oferta ou volta depois.
-// Trocar pelo link da área de membros quando ela existir.
-ACCESS_URL: "https://100-brinquedos-de-madeira.vercel.app/acesso",
+// Área de membros (app).
+ACCESS_URL: "https://100-brinquedos-de-madeira.vercel.app/membros/",
 
 // Links de checkout da Payt (versão Pix / cartão normal). Duplicados do checkout sem CPF.
 CHECKOUT_UPSELL: "https://checkout.payt.com.br/8bf08c057db57ed4c344a60bf904d9c6",
