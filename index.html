@@ -72,19 +72,15 @@ section{padding:52px 0}
 
 /* Projeto + carrossel */
 .plan .grid{display:grid;gap:28px;margin-top:30px;align-items:center}
-.car{position:relative;max-width:440px;margin:0 auto;width:100%}
-.car .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-radius:14px;box-shadow:0 14px 30px rgba(60,35,15,.2);background:#fff}
-.car .track::-webkit-scrollbar{display:none}
-.slide{flex:0 0 100%;scroll-snap-align:center;position:relative;cursor:zoom-in}
-.slide img{width:100%;aspect-ratio:3/4;object-fit:cover}
-.slide figcaption{position:absolute;left:12px;bottom:12px;background:rgba(30,23,18,.85);color:#fff;font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px}
-.car .nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.94);color:var(--dark);font-size:24px;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.25);z-index:2}
-.car .prev{left:-8px}.car .next{right:-8px}
-.dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
-.dots i{width:9px;height:9px;border-radius:50%;background:#D8C7B2;transition:.2s}
-.dots i.on{background:var(--acc);width:24px;border-radius:6px}
+.car{position:relative;max-width:440px;margin:0 auto;width:100%;overflow:hidden;padding:8px 0 22px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.car .track{display:flex;width:max-content;animation:marq 100s linear infinite;will-change:transform}
+.car.paused .track{animation-play-state:paused}
+@keyframes marq{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+.slide{flex:0 0 auto;width:min(64vw,250px);margin-right:12px;position:relative;cursor:zoom-in;border-radius:14px;overflow:hidden;box-shadow:0 8px 20px rgba(60,35,15,.2);background:#fff}
+.slide img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.slide figcaption{position:absolute;left:10px;bottom:10px;background:rgba(30,23,18,.85);color:#fff;font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:20px}
 .slide.mold figcaption{display:none}
-.car .hint{text-align:center;font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:.04em}
+@media(prefers-reduced-motion:reduce){.car{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.car .track{animation:none}}
 .feat{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
 .feat:last-child{border:0}
 .feat .ic{flex:0 0 38px;height:38px;border-radius:9px;background:#F1E2CF;color:var(--acc);display:flex;align-items:center;justify-content:center;font-size:17px}
@@ -120,16 +116,10 @@ section{padding:52px 0}
 .bonus .note b{color:#F5A15C}
 
 /* Depoimentos */
-.revs{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 18px;margin:24px -20px 0;-webkit-overflow-scrolling:touch}
-.rev{flex:0 0 82%;max-width:320px;scroll-snap-align:start;background:var(--bg);border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(60,35,15,.12);display:flex;flex-direction:column}
-.rev img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.rev .body{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1}
-.rev .q{font-family:Fraunces,Georgia,serif;font-size:15px;margin-top:6px;flex:1}
-.rev .who{display:flex;align-items:center;gap:10px;margin-top:14px}
-.rev .av{width:34px;height:34px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
-.rev .nm{font-weight:700;font-size:14px}
-.rev .loc{font-size:12px;color:var(--muted)}
-.swipe{text-align:center;font-size:12px;letter-spacing:.1em;color:var(--muted);margin-top:8px}
+.prints{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;padding:6px 20px 18px;margin:24px -20px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.prints::-webkit-scrollbar{display:none}
+.dp{flex:0 0 74%;max-width:290px;scroll-snap-align:start;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(60,35,15,.16);cursor:zoom-in}
+.dp img{width:100%;height:auto;display:block;aspect-ratio:941/1672}
 
 /* Planos */
 .oferta{background:var(--bg)}
@@ -250,7 +240,7 @@ footer{background:var(--dark);color:#9A8878;text-align:center;font-size:12.5px;p
   .bcard img{width:100%;height:auto}
   .bcard h3{font-size:19px}
   .bcard p{font-size:14.5px}
-  .rev{flex-basis:300px}
+  .dp{flex-basis:300px}
   .revs{margin:24px 0 0;padding:6px 0 18px}
   .cols{grid-template-columns:1fr 1fr}
   .pl.full .por{font-size:104px}
@@ -365,9 +355,6 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
             <figure class="slide"><img src="assets/imgs/proj7.webp" width="900" height="1200" alt="Projeto Trenzinho de Natal com molde, medidas em centímetros e passo a passo" loading="lazy"><figcaption>Projeto 7 · Trenzinho de Natal</figcaption></figure>
             <figure class="slide mold"><img src="assets/imgs/molde7.webp" width="900" height="1200" alt="Molde em tamanho real do projeto Trenzinho de Natal, para imprimir em folha A4" loading="lazy"><figcaption>Molde 7 · Trenzinho de Natal, em tamanho real</figcaption></figure>
           </div>
-          <button class="nav prev" type="button" aria-label="Projeto anterior">‹</button>
-          <button class="nav next" type="button" aria-label="Próximo projeto">›</button>
-          <div class="dots" id="dots"></div>
         </div>
       </div>
       <div style="text-align:left">
@@ -418,19 +405,19 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
   </div>
 </section>
 
-<!-- DEPOIMENTOS (reais, traduzidos) -->
+<!-- DEPOIMENTOS (prints reais) -->
 <section>
   <div class="wrap">
     <div class="eyebrow">Quem constrói, conta</div>
     <h2>O que dizem os <em>construtores</em></h2>
-    <p class="sub" style="font-size:15px">Avaliações de compradores da coleção original, traduzidas do inglês.</p>
-    <p class="swipe">→ ARRASTE PARA VER MAIS</p>
-    <div class="revs">
-      <div class="rev"><img src="assets/imgs/rev1.webp" width="720" height="537" alt="Brinquedo de madeira feito com os projetos" loading="lazy"><div class="body"><span class="stars">★★★★★</span><p class="q">Já comprei moldes avulsos que eram basicamente um rascunho, sem medida de verdade. Estes estão em outro nível. Os moldes saíram certinhos no tamanho real e o cavalinho de balanço ficou <strong>melhor do que eu esperava</strong>. Minha neta não sai de cima dele.</p><div class="who"><div class="av">D</div><div><div class="nm">David M.</div><div class="loc">Comprador da coleção original</div></div></div></div></div>
-      <div class="rev"><img src="assets/imgs/rev2.webp" width="720" height="537" alt="Brinquedo de madeira feito com os projetos" loading="lazy"><div class="body"><span class="stars">★★★★★</span><p class="q">Os arquivos funcionaram perfeitamente na minha serra tico-tico. Cinco brinquedos prontos até agora, nenhum problema. <strong>Não podia estar mais feliz.</strong></p><div class="who"><div class="av">R</div><div><div class="nm">Robert K.</div><div class="loc">Comprador da coleção original</div></div></div></div></div>
-      <div class="rev"><img src="assets/imgs/rev3.webp" width="720" height="537" alt="Brinquedo de madeira feito com os projetos" loading="lazy"><div class="body"><span class="stars">★★★★★</span><p class="q">Sinceramente, quase não comprei porque nunca tinha feito nada de madeira na vida. Que bom que comprei. As instruções te levam pela mão em cada passo, e meu primeiro caminhão ficou parecendo um caminhão de verdade! <strong>Meu neto leva ele para todo lado, até para a cama.</strong> Não dá para pedir mais que isso.</p><div class="who"><div class="av">J</div><div><div class="nm">James P.</div><div class="loc">Comprador da coleção original</div></div></div></div></div>
-      <div class="rev"><img src="assets/imgs/rev4.webp" width="720" height="537" alt="Brinquedo de madeira feito com os projetos" loading="lazy"><div class="body"><span class="stars">★★★★★</span><p class="q">Bom custo-benefício, simples assim. Eu pagava quase o mesmo por um molde de cada vez antes de achar esta coleção. <strong>Agora tenho mais projetos do que fins de semana.</strong> Queria ter achado isso anos atrás.</p><div class="who"><div class="av">W</div><div><div class="nm">William T.</div><div class="loc">Comprador da coleção original</div></div></div></div></div>
-      <div class="rev"><img src="assets/imgs/rev6.webp" width="720" height="537" alt="Brinquedo de madeira feito com os projetos" loading="lazy"><div class="body"><span class="stars">★★★★★</span><p class="q">Download imediato, sem esperar. E ter as medidas em centímetros me poupou uma dor de cabeça aqui na Alemanha. <strong>Qualidade excelente.</strong></p><div class="who"><div class="av">H</div><div><div class="nm">Hans G.</div><div class="loc">Comprador da coleção original</div></div></div></div></div>
+    <p class="sub" style="font-size:15px">Recebemos mensagens como essas todos os dias, e logo será você nos enviando também.</p>
+    <div class="prints">
+      <div class="dp"><img src="assets/imgs/dep1.webp" width="720" height="1279" alt="Print de mensagem de WhatsApp de cliente com a coleção de projetos" loading="lazy"></div>
+      <div class="dp"><img src="assets/imgs/dep2.webp" width="720" height="1279" alt="Print de mensagem de WhatsApp de cliente com a coleção de projetos" loading="lazy"></div>
+      <div class="dp"><img src="assets/imgs/dep3.webp" width="720" height="1279" alt="Print de mensagem de WhatsApp de cliente com a coleção de projetos" loading="lazy"></div>
+      <div class="dp"><img src="assets/imgs/dep4.webp" width="720" height="1279" alt="Print de mensagem de WhatsApp de cliente com a coleção de projetos" loading="lazy"></div>
+      <div class="dp"><img src="assets/imgs/dep5.webp" width="720" height="1279" alt="Print de mensagem de WhatsApp de cliente com a coleção de projetos" loading="lazy"></div>
+      <div class="dp"><img src="assets/imgs/dep6.webp" width="720" height="1279" alt="Print de mensagem de WhatsApp de cliente com a coleção de projetos" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -586,26 +573,14 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
   document.querySelectorAll('.bf-dias').forEach(function(el){el.textContent=txt;});
   document.querySelectorAll('.ano').forEach(function(el){el.textContent=hoje.getFullYear();});
 
-  /* carrossel */
-  var car=document.getElementById('car'), tr=car.querySelector('.track'), sl=tr.children, dots=document.getElementById('dots');
-  var n=sl.length, cur=0, auto=true, timer=null;
-  for(var i=0;i<n;i++){dots.appendChild(document.createElement('i'));}
-  function setDot(k){cur=k;[].forEach.call(dots.children,function(el,j){el.classList.toggle('on',j===k);});}
-  function go(k){k=(k+n)%n;tr.scrollTo({left:k*tr.clientWidth,behavior:'smooth'});setDot(k);}
-  tr.addEventListener('scroll',function(){var k=Math.round(tr.scrollLeft/tr.clientWidth);if(k!==cur)setDot(k);});
-  car.querySelector('.prev').addEventListener('click',function(){pause(6000);go(cur-1);});
-  car.querySelector('.next').addEventListener('click',function(){pause(6000);go(cur+1);});
-  var pausedUntil=0;
-  function pause(ms){pausedUntil=Date.now()+(ms||6000);}
-  ['touchstart','mousedown'].forEach(function(ev){tr.addEventListener(ev,function(){pause(6000);},{passive:true});});
-  tr.addEventListener('wheel',function(){pause(6000);},{passive:true});
-  setDot(0);
-  timer=setInterval(function(){
-    if(document.visibilityState!=='visible'||Date.now()<pausedUntil)return;
-    var r=car.getBoundingClientRect();
-    if(r.bottom<0||r.top>window.innerHeight)return;
-    go(cur+1);
-  },3500);
+  /* carrossel contínuo (marquee lento) */
+  var car=document.getElementById('car'), tr=car.querySelector('.track');
+  [].slice.call(tr.children).forEach(function(f){var c=f.cloneNode(true);c.setAttribute('aria-hidden','true');tr.appendChild(c);});
+  var sl=tr.children;
+  function speed(){tr.style.animationDuration=Math.round(tr.scrollWidth/2/38)+'s';}
+  speed();window.addEventListener('resize',speed);
+  ['pointerdown','pointerenter'].forEach(function(ev){car.addEventListener(ev,function(){car.classList.add('paused');},{passive:true});});
+  ['pointerup','pointerleave','pointercancel'].forEach(function(ev){car.addEventListener(ev,function(){car.classList.remove('paused');},{passive:true});});
 
   /* modais */
   var lastFocus=null;
@@ -621,7 +596,10 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
 
   /* ampliar projeto */
   var lb=document.getElementById('lb');
-  [].forEach.call(sl,function(fig){fig.addEventListener('click',function(){pause(15000);var im=lb.querySelector('img');im.src=fig.querySelector('img').src;im.alt=fig.querySelector('img').alt;openM(lb);});});
+  [].forEach.call(sl,function(fig){fig.addEventListener('click',function(){var im=lb.querySelector('img');im.src=fig.querySelector('img').src;im.alt=fig.querySelector('img').alt;openM(lb);});});
+
+  /* ampliar print de depoimento */
+  [].forEach.call(document.querySelectorAll('.dp'),function(c){c.addEventListener('click',function(){var im=lb.querySelector('img'),o=c.querySelector('img');im.src=o.src;im.alt=o.alt;openM(lb);});});
 
   /* clicou no plano de R$ 9,90: oferece o completo por R$ 14,90 */
   var pop1=document.getElementById('pop1'), pop2=document.getElementById('pop2');
