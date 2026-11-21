@@ -41,7 +41,7 @@ section{padding:52px 0}
 .hero{background:linear-gradient(180deg,#F3E8DA,var(--bg));padding:34px 0 48px;text-align:center}
 .hero .in{max-width:860px;margin:0 auto}
 .hero h1{font-size:36px;margin:6px auto 14px;max-width:820px}
-.hero .lead{font-family:Fraunces,Georgia,serif;font-weight:400;font-size:18px;color:var(--text);max-width:680px;margin:0 auto}
+.hero .lead{font-family:Fraunces,Georgia,serif;font-weight:400;font-size:15.5px;line-height:1.5;color:var(--text);max-width:680px;margin:0 auto}
 .hero-media{display:grid;gap:18px;margin:26px auto 0;max-width:760px;align-items:center}
 .hero-media.one .mock{max-width:420px}
 .checks{list-style:none;margin:24px auto 0;max-width:520px;text-align:left}
@@ -83,6 +83,7 @@ section{padding:52px 0}
 .dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
 .dots i{width:9px;height:9px;border-radius:50%;background:#D8C7B2;transition:.2s}
 .dots i.on{background:var(--acc);width:24px;border-radius:6px}
+.slide.mold figcaption{display:none}
 .car .hint{text-align:center;font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:.04em}
 .feat{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
 .feat:last-child{border:0}
@@ -106,13 +107,13 @@ section{padding:52px 0}
 .bonus h2{color:#fff}
 .bonus h2 em{color:#F5A15C}
 .bonus .sub{color:#CDBFB0}
-.bgrid{display:grid;gap:16px;margin-top:30px}
-.bcard{background:#F6EEE3;border-radius:14px;padding:14px 14px 18px;text-align:center}
-.bcard img{border-radius:10px;aspect-ratio:1/1;object-fit:cover;width:100%}
-.bcard .lab{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--acc)}
-.bcard h3{font-size:19px;margin-top:4px}
-.bcard p{font-size:14.5px;color:var(--muted);margin-top:6px}
-.bcard .val{margin-top:10px;font-size:13px}
+.bgrid{display:grid;gap:12px;margin-top:22px}
+.bcard{background:#F6EEE3;border-radius:14px;padding:12px;display:grid;grid-template-columns:104px 1fr;gap:12px;align-items:center;text-align:left}
+.bcard img{border-radius:10px;aspect-ratio:1/1;object-fit:cover;width:104px;height:104px}
+.bcard .lab{display:block;font-size:10.5px;font-weight:700;letter-spacing:.12em;color:var(--acc)}
+.bcard h3{font-size:16px;line-height:1.25;margin-top:2px}
+.bcard p{font-size:13px;line-height:1.4;color:var(--muted);margin-top:4px}
+.bcard .val{margin-top:6px;font-size:12px}
 .bcard .val s{color:#9A8878}
 .bcard .val b{background:#DDEFD9;color:var(--green);padding:2px 8px;border-radius:12px;margin-left:6px}
 .bonus .note{color:#CDBFB0;text-align:center;font-style:italic;margin-top:14px;font-family:Fraunces,Georgia,serif}
@@ -245,6 +246,10 @@ footer{background:var(--dark);color:#9A8878;text-align:center;font-size:12.5px;p
   .plan .grid{grid-template-columns:.9fr 1.1fr;gap:44px}
   .faces{grid-template-columns:repeat(4,1fr);gap:16px}
   .bgrid{grid-template-columns:repeat(3,1fr)}
+  .bcard{grid-template-columns:1fr;text-align:center;padding:14px 14px 18px}
+  .bcard img{width:100%;height:auto}
+  .bcard h3{font-size:19px}
+  .bcard p{font-size:14.5px}
   .rev{flex-basis:300px}
   .revs{margin:24px 0 0;padding:6px 0 18px}
   .cols{grid-template-columns:1fr 1fr}
@@ -271,7 +276,7 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
 <!-- Aviso Black Friday -->
 <div class="bf">
   <span class="tag">BLACK FRIDAY</span>
-  <p><b>Preços especiais</b> válidos apenas nos dias <span class="bf-dias">16, 17 e 18 de novembro</span></p>
+  <p><b>Oferta especial</b> válida apenas nos dias <span class="bf-dias">16, 17 e 18 de novembro</span></p>
 </div>
 
 <main>
@@ -346,24 +351,30 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
         <div class="car" id="car">
           <div class="track">
             <figure class="slide"><img src="assets/imgs/proj1.webp" width="900" height="1200" alt="Projeto Cavalinho de Balanço com molde, medidas em centímetros e passo a passo" loading="lazy"><figcaption>Projeto 1 · Cavalinho de Balanço</figcaption></figure>
+            <figure class="slide mold"><img src="assets/imgs/molde1.webp" width="900" height="1200" alt="Molde em tamanho real do projeto Cavalinho de Balanço, para imprimir em folha A4" loading="lazy"><figcaption>Molde 1 · Cavalinho de Balanço, em tamanho real</figcaption></figure>
             <figure class="slide"><img src="assets/imgs/proj2.webp" width="900" height="1200" alt="Projeto Caminhão Basculante com molde, medidas em centímetros e passo a passo" loading="lazy"><figcaption>Projeto 2 · Caminhão Basculante</figcaption></figure>
+            <figure class="slide mold"><img src="assets/imgs/molde2.webp" width="900" height="1200" alt="Molde em tamanho real do projeto Caminhão Basculante, para imprimir em folha A4" loading="lazy"><figcaption>Molde 2 · Caminhão Basculante, em tamanho real</figcaption></figure>
             <figure class="slide"><img src="assets/imgs/proj3.webp" width="900" height="1200" alt="Projeto Aviãozinho com molde, medidas em centímetros e passo a passo" loading="lazy"><figcaption>Projeto 3 · Aviãozinho</figcaption></figure>
+            <figure class="slide mold"><img src="assets/imgs/molde3.webp" width="900" height="1200" alt="Molde em tamanho real do projeto Aviãozinho, para imprimir em folha A4" loading="lazy"><figcaption>Molde 3 · Aviãozinho, em tamanho real</figcaption></figure>
             <figure class="slide"><img src="assets/imgs/proj4.webp" width="900" height="1200" alt="Projeto Escavadeira de Brinquedo com molde, medidas em centímetros e passo a passo" loading="lazy"><figcaption>Projeto 4 · Escavadeira</figcaption></figure>
+            <figure class="slide mold"><img src="assets/imgs/molde4.webp" width="900" height="1200" alt="Molde em tamanho real do projeto Escavadeira, para imprimir em folha A4" loading="lazy"><figcaption>Molde 4 · Escavadeira, em tamanho real</figcaption></figure>
             <figure class="slide"><img src="assets/imgs/proj5.webp" width="900" height="1200" alt="Projeto Fazendinha com Vaquinha com molde, medidas em centímetros e passo a passo" loading="lazy"><figcaption>Projeto 5 · Fazendinha com Vaquinha</figcaption></figure>
+            <figure class="slide mold"><img src="assets/imgs/molde5.webp" width="900" height="1200" alt="Molde em tamanho real do projeto Fazendinha com Vaquinha, para imprimir em folha A4" loading="lazy"><figcaption>Molde 5 · Fazendinha com Vaquinha, em tamanho real</figcaption></figure>
             <figure class="slide"><img src="assets/imgs/proj6.webp" width="900" height="1200" alt="Projeto Berço de Boneca com molde, medidas em centímetros e passo a passo" loading="lazy"><figcaption>Projeto 6 · Berço de Boneca</figcaption></figure>
+            <figure class="slide mold"><img src="assets/imgs/molde6.webp" width="900" height="1200" alt="Molde em tamanho real do projeto Berço de Boneca, para imprimir em folha A4" loading="lazy"><figcaption>Molde 6 · Berço de Boneca, em tamanho real</figcaption></figure>
             <figure class="slide"><img src="assets/imgs/proj7.webp" width="900" height="1200" alt="Projeto Trenzinho de Natal com molde, medidas em centímetros e passo a passo" loading="lazy"><figcaption>Projeto 7 · Trenzinho de Natal</figcaption></figure>
+            <figure class="slide mold"><img src="assets/imgs/molde7.webp" width="900" height="1200" alt="Molde em tamanho real do projeto Trenzinho de Natal, para imprimir em folha A4" loading="lazy"><figcaption>Molde 7 · Trenzinho de Natal, em tamanho real</figcaption></figure>
           </div>
           <button class="nav prev" type="button" aria-label="Projeto anterior">‹</button>
           <button class="nav next" type="button" aria-label="Próximo projeto">›</button>
           <div class="dots" id="dots"></div>
-          <p class="hint">Toque na página para ampliar e ver as medidas</p>
         </div>
       </div>
       <div style="text-align:left">
-        <div class="feat"><div class="ic">✓</div><div><h3>Moldes em tamanho real</h3><p>Imprima em escala 1:1 e risque direto na madeira. Sem conta, sem ampliar nada.</p></div></div>
+        <div class="feat"><div class="ic">✓</div><div><h3>Moldes em tamanho real</h3><p>Imprima. Risque direto na madeira. Sem conta, sem ampliar nada.</p></div></div>
         <div class="feat"><div class="ic">▤</div><div><h3>Montagem passo a passo</h3><p>Fotos e explicações claras em cada etapa, do corte ao acabamento.</p></div></div>
-        <div class="feat"><div class="ic">📏</div><div><h3>Medidas em centímetros</h3><p>No padrão brasileiro. Nada de polegada para ficar convertendo.</p></div></div>
-        <div class="feat"><div class="ic">☷</div><div><h3>Lista de materiais e ferramentas</h3><p>Você sabe exatamente o que comprar antes de começar. Nenhuma ida perdida à loja.</p></div></div>
+        <div class="feat"><div class="ic">📏</div><div><h3>Medidas exatas em cada peça</h3><p>Cada peça vem com a medida escrita, em centímetros. É só conferir e cortar.</p></div></div>
+        <div class="feat"><div class="ic">☷</div><div><h3>Lista de materiais e ferramentas</h3><p>Você sabe exatamente o que usar antes de começar.</p></div></div>
         <div class="feat"><div class="ic">★</div><div><h3>Nível de dificuldade</h3><p>Do mais fácil ao avançado. Você escolhe o projeto certo para o seu momento.</p></div></div>
       </div>
     </div>
@@ -398,9 +409,9 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
     <h2>E ainda leva <em>3 bônus</em> de presente</h2>
     <p class="sub">Para o seu primeiro brinquedo sair seguro, bonito e digno de ser guardado, juntamos tudo o que você precisa. De graça, junto com o seu pedido.</p>
     <div class="bgrid">
-      <div class="bcard"><img src="assets/imgs/bonus1.webp" width="700" height="700" alt="Capa do Guia do Iniciante" loading="lazy"><span class="lab">BÔNUS #1</span><h3>Guia do Iniciante: Seu Primeiro Brinquedo de Madeira</h3><p>Nunca fez um brinquedo? Este guia mostra as ferramentas, as madeiras e as técnicas, passo a passo, para o seu primeiro projeto dar certo.</p><p class="val"><s>R$ 37,00</s><b>GRÁTIS</b></p></div>
-      <div class="bcard"><img src="assets/imgs/bonus2.webp" width="700" height="700" alt="Capa do guia de acabamentos seguros" loading="lazy"><span class="lab">BÔNUS #2</span><h3>Acabamentos Seguros e Madeiras Atóxicas</h3><p>Saiba exatamente quais madeiras, tintas e vernizes são seguros para crianças. Construa com tranquilidade cada brinquedo que vai para a mão delas.</p><p class="val"><s>R$ 27,00</s><b>GRÁTIS</b></p></div>
-      <div class="bcard"><img src="assets/imgs/bonus3.webp" width="700" height="700" alt="Certificado do Brinquedo de Família" loading="lazy"><span class="lab">BÔNUS #3</span><h3>Certificado do Brinquedo de Família</h3><p>Um cartão para imprimir e entregar junto com o brinquedo: quem fez, para quem e em que data. Assim a história dele passa de geração em geração junto com o brinquedo.</p><p class="val"><s>R$ 19,00</s><b>GRÁTIS</b></p></div>
+      <div class="bcard"><img src="assets/imgs/bonus1.webp" width="700" height="700" alt="Capa do Guia do Iniciante" loading="lazy"><div><span class="lab">BÔNUS #1</span><h3>Guia do Iniciante: Seu Primeiro Brinquedo de Madeira</h3><p>Nunca fez um brinquedo? Este guia mostra as ferramentas, as madeiras e as técnicas, passo a passo, para o seu primeiro projeto dar certo.</p><p class="val"><s>R$ 37,00</s><b>GRÁTIS</b></p></div></div>
+      <div class="bcard"><img src="assets/imgs/bonus2.webp" width="700" height="700" alt="Capa do guia de acabamentos seguros" loading="lazy"><div><span class="lab">BÔNUS #2</span><h3>Acabamentos Seguros e Madeiras Atóxicas</h3><p>Saiba exatamente quais madeiras, tintas e vernizes são seguros para crianças. Construa com tranquilidade cada brinquedo que vai para a mão delas.</p><p class="val"><s>R$ 27,00</s><b>GRÁTIS</b></p></div></div>
+      <div class="bcard"><img src="assets/imgs/bonus3.webp" width="700" height="700" alt="Certificado do Brinquedo de Família" loading="lazy"><div><span class="lab">BÔNUS #3</span><h3>Certificado do Brinquedo de Família</h3><p>Um cartão para imprimir e entregar junto com o brinquedo: quem fez, para quem e em que data. Assim a história dele passa de geração em geração junto com o brinquedo.</p><p class="val"><s>R$ 19,00</s><b>GRÁTIS</b></p></div></div>
     </div>
     <a class="btn" href="#oferta">QUERO OS 3 BÔNUS DE GRAÇA →</a>
     <p class="note">Os três bônus são seus, de graça, <b>só no Plano Completo</b>.</p>
