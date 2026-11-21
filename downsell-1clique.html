@@ -138,7 +138,7 @@ footer{color:#a78783}
 <section id="offer" hidden>
  <div id="cta-anchor"></div>
  <div class="price"><div class="de">Não são mais <s>R$ 47</s></div><div class="por">R$ 24,90</div><div class="tag">✂️ METADE DO PREÇO</div></div>
- <div class="oneclick" id="oneclick"><!-- BOTÃO 1 CLIQUE DA PAYT (downsell): colar aqui quando a página 1 clique for criada --></div>
+ <div class="oneclick" id="oneclick"><div style="text-align:center"><a href="#" payt_action="oneclick_buy" data-object="4MA2OD-RWWQOP" style="background:#16a34a;color:#fff;padding:18px 14px;text-decoration:none;font-size:19px;font-weight:900;font-family:Montserrat,sans-serif;border-radius:14px;display:block;margin:10px auto;width:100%;max-width:520px;box-sizing:border-box;line-height:1.25;box-shadow:0 6px 18px rgba(22,163,74,.35)">SIM! QUERO POR R$ 24,90<br><span style="font-size:13px;font-weight:600;opacity:.9">Kit de Pintura • versão reduzida</span></a><select payt_element="installment" style="" data-object="4MA2OD-RWWQOP" hidden></select><script type="text/javascript" src="https://checkout.payt.com.br/multiple-oneclickbuyscript/LYK85A.js"></script></div></div>
 <a class="cta" id="fallback" data-checkout="CHECKOUT_DOWNSELL">SIM! QUERO POR R$ 24,90<small>Kit de Pintura • versão reduzida</small></a>
 <script>(function(){var s=document.getElementById("oneclick");if(s&&s.children.length){var f=document.getElementById("fallback");if(f)f.style.display="none"}})();</script>
  <div class="safe"><span>🔒 Pagamento seguro</span><span>⚡ Acesso imediato</span><span>📱 Direto no seu celular</span></div>
@@ -152,6 +152,6 @@ footer{color:#a78783}
 </section>
 <footer>Brinquedos Pintados à Mão • Todos os direitos reservados<br>Confira sempre na embalagem se a tinta é indicada para brinquedo infantil.</footer>
 </main>
-<div id="sticky" hidden><a class="cta" data-checkout="CHECKOUT_DOWNSELL">SIM! QUERO POR R$ 24,90</a></div>
+<div id="sticky" hidden><a class="cta" href="#" onclick="var b=document.querySelector('[payt_action=oneclick_buy]');if(b){b.click()}return false">SIM! QUERO POR R$ 24,90</a></div>
 <script src="/vsl.js?v=1" defer></script>
 </body></html>

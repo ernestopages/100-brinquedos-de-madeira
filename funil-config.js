@@ -8,8 +8,8 @@ window.CFG = {
   ACCESS_URL: "https://100-brinquedos-de-madeira.vercel.app/acesso",
 
   // Links de checkout da Payt (versão Pix / cartão normal). Colar quando os checkouts forem criados.
-  CHECKOUT_UPSELL: "",
-  CHECKOUT_DOWNSELL: "",
+  CHECKOUT_UPSELL: "https://checkout.payt.com.br/8cbf994720a1bedeaa4fc92f765cc572",
+  CHECKOUT_DOWNSELL: "https://checkout.payt.com.br/1fea357118a796095291b9d751e7aa3d",
 
   // Segundo do vídeo em que o botão de compra aparece.
   REVEAL_UPSELL: 204,  // quando o R$ 47 aparece no vídeo
