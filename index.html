@@ -697,6 +697,14 @@ requestAnimationFrame(function(){setTimeout(function(){
   document.querySelectorAll('[data-plan="essential"]').forEach(function(b){
     b.addEventListener('click',function(){openM(pop1);});
   });
+  /* botões âncora (#oferta etc.): rola até o bloco sem mexer no histórico.
+     Sem isso, no celular o clique virava um "voltar" e abria o pop-up de saída. */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');if(!a||a.hasAttribute('data-close'))return;
+    var id=a.getAttribute('href');if(id.length<2)return;
+    var t=document.querySelector(id);if(!t)return;
+    e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
   /* quem foi para o checkout não vê o pop-up de saída */
   document.addEventListener('click',function(e){var a=e.target.closest('a[href*="payt.com.br"]');if(a)leaving=true;},true);
 
@@ -709,7 +717,9 @@ requestAnimationFrame(function(){setTimeout(function(){
     openM(pop2);
   }
   /* computador: mouse saindo pela parte de cima da janela */
-  document.documentElement.addEventListener('mouseleave',function(e){if(e.clientY<=0)showExit();});
+  /* (só com mouse de verdade: no celular o toque + rolagem gerava um "mouseleave" falso) */
+  var mouse=window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if(mouse)document.documentElement.addEventListener('mouseleave',function(e){if(e.clientY<=0&&!e.relatedTarget)showExit();});
   /* celular: botão voltar */
   var touch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
   if(touch&&window.history&&history.pushState){
