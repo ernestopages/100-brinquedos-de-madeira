@@ -339,8 +339,7 @@ function viewFolder(p, b) {
 
 function viewTools() {
   let h = topBack('Ferramentas Baratas') + `<div class="wrap">
-    <div class="thero"><span class="tag">BÔNUS 4</span><h1>Lista Secreta de Ferramentas Baratas</h1><p>Separamos as ferramentas com o melhor preço que encontramos, só de lojas bem avaliadas e com muitas vendas. Toque em <b>Ver oferta</b> para abrir a loja e comprar.</p></div>
-    <div class="tip">Os preços mudam toda hora na loja. Vale conferir o valor e o frete antes de finalizar.</div>`;
+    <div class="thero"><span class="tag">BÔNUS 4</span><h1>Lista Secreta de Ferramentas Baratas</h1><p>Tudo o que você precisa para fazer seus brinquedos, pelos menores preços que encontramos. Não precisa comprar tudo: comece com o básico e vá montando sua oficina aos poucos. Toque em <b>Ver oferta</b> para garantir a sua.</p></div>`;
   TOOLS.forEach(c => {
     h += `<div class="blk">${esc(c.cat)}</div>` + c.items.map(t => `<a class="tool" href="${esc(t.u)}" target="_blank" rel="noopener" data-tool="${esc(t.n)}">
       <span class="ti"><img src="${A}img/${t.img}" alt="" loading="lazy" width="320" height="320">${t.top ? '<em>🔥 Mais vendido</em>' : ''}</span>
