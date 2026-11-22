@@ -93,6 +93,23 @@ svg{display:block;flex:none}
 .a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:66px;border-radius:14px;font-weight:800;font-size:15px;background:var(--card2);border:1px solid var(--line);color:var(--ink)}
 .a:active{transform:scale(.96)}
 .a.open{background:linear-gradient(180deg,#2fba68,var(--gr2));border-color:transparent;color:#fff}
+/* bônus 4: ferramentas */
+.doc.lst{display:block}
+.a.wide{flex-direction:row;gap:8px;min-height:58px;font-size:17px}
+.thero{padding:22px 0 4px}
+.thero .tag{display:inline-block;background:var(--gold);color:#2b1b0e;font:900 13px M;letter-spacing:.1em;padding:5px 12px;border-radius:30px}
+.thero h1{font-size:25px;margin-top:10px}
+.thero p{color:var(--mu);font-size:16px;margin-top:8px}
+.thero p b{color:var(--gold2)}
+.tool{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:12px}
+.tool:active{transform:scale(.98)}
+.ti{position:relative;flex:none;width:104px;height:104px;border-radius:14px;overflow:hidden;background:#fff}
+.ti img{width:100%;height:100%;object-fit:contain;display:block}
+.ti em{position:absolute;left:0;right:0;bottom:0;background:rgba(20,16,12,.85);color:var(--gold2);font:800 11px system-ui;font-style:normal;text-align:center;padding:3px 0}
+.tx{flex:1;min-width:0}
+.tx b{display:block;font-size:17px;line-height:1.25}
+.tx small{display:block;color:var(--mu);font-size:15px;margin-top:4px;line-height:1.35}
+.vo{display:inline-block;margin-top:9px;background:linear-gradient(180deg,#2fba68,var(--gr2));color:#fff;font-weight:800;font-size:15px;padding:8px 14px;border-radius:30px}
 /* leitor */
 #viewer{position:fixed;inset:0;z-index:30;background:#0d0a07;display:flex;flex-direction:column}
 .vbar{display:flex;align-items:center;gap:10px;padding:calc(9px + env(safe-area-inset-top)) 12px 9px;background:#1a140f;border-bottom:1px solid var(--line)}
@@ -172,10 +189,11 @@ const PRODUCTS = [
         it('g6', 'Para as Meninas', '9 projetos · 37 páginas', 'Guia 6 - Para as Meninas'),
         it('g7', 'Natal e Datas Especiais', '15 projetos · 39 páginas', 'Guia 7 - Natal e Datas Especiais'),
         it('g8', 'Quebra-cabeças e Jogos', '10 projetos · 37 páginas', 'Guia 8 - Quebra-cabecas e Jogos') ] },
-      { type: 'docs', title: 'Seus 3 bônus', sep: true, items: [
+      { type: 'docs', title: 'Seus 4 bônus', sep: true, items: [
         it('b1', 'Bônus 1 · Guia do Iniciante', '11 páginas', 'Bonus 1 - Guia do Iniciante'),
         it('b2', 'Bônus 2 · Acabamentos Seguros e Madeiras Atóxicas', '8 páginas', 'Bonus 2 - Acabamentos Seguros'),
-        it('b3', 'Bônus 3 · Certificado do Brinquedo de Família', '7 páginas', 'Bonus 3 - Certificado') ] }
+        it('b3', 'Bônus 3 · Certificado do Brinquedo de Família', '7 páginas', 'Bonus 3 - Certificado'),
+        { id: 'b4', type: 'list', title: 'Bônus 4 · Lista Secreta de Ferramentas Baratas', sub: '26 ferramentas com link para comprar', thumb: 't-b4.webp' } ] }
     ] },
   { id: 'kit', kind: 'bump', title: 'Kit de Pintura e Personalização', cover: 'c-kit.webp',
     desc: 'Pinte e personalize seus brinquedos: tintas e vernizes certos, paletas, rostinhos e alfabeto para imprimir. Com 3 bônus.',
@@ -200,8 +218,10 @@ const PRODUCTS = [
     price: 'R$ 8,90', old: 'R$ 19,90', buy: 'https://checkout.payt.com.br/be248e45f4549e9c64f93b8654a91daa',
     blocks: [ { type: 'docs', title: 'Seu guia', items: [ it('jogos', '25 Jogos de Tabuleiro em Madeira', 'Guia completo · 32 páginas', '25 Jogos de Tabuleiro em Madeira') ] } ] }
 ];
+/* BÔNUS 4: ferramentas (links de afiliado). n = nome, d = descrição curta, img = foto em assets/img, u = link, top = selo de mais vendido. */
+const TOOLS = [{"cat":"Serras e cortes","items":[{"n":"Serra Tico-Tico 500W + 14 lâminas","d":"Já vem com 14 lâminas. Perfeita para cortar os moldes.","img":"fr25.webp","u":"https://s.shopee.com.br/9Kjo59st8C","top":true},{"n":"Serra Tico-Tico 550W com base regulável","d":"Base que inclina para cortes retos e em ângulo.","img":"fr00.webp","u":"https://s.shopee.com.br/4fxyWYOanC","top":false},{"n":"Serra Tico-Tico Philco 450W","d":"Leve e fácil de controlar nas curvas.","img":"fr01.webp","u":"https://s.shopee.com.br/4qHOirNxSF","top":false},{"n":"Adaptador que vira tico-tico na furadeira","d":"Já tem furadeira? Gasta pouco e corta madeira fina.","img":"fr02.webp","u":"https://s.shopee.com.br/4LL87wPrTA","top":false},{"n":"Serra Mágica: arco com lâminas","d":"Corte manual em curva, sem precisar de tomada.","img":"fr03.webp","u":"https://s.shopee.com.br/4VeYKFPE8D","top":true},{"n":"Mini arco de serra tico-tico + 5 lâminas","d":"Para curvas pequenas e detalhes delicados.","img":"fr04.webp","u":"https://s.shopee.com.br/40iHjKR898","top":false},{"n":"Serrote 18\" de aço","d":"Para os cortes retos nas tábuas.","img":"fr05.webp","u":"https://s.shopee.com.br/4VeYKGkPPz","top":false},{"n":"Caixa de meia-esquadria + serrote de costa","d":"Cortes retos e em 45° certinhos.","img":"fr06.webp","u":"https://s.shopee.com.br/6AmmJKe42K","top":false},{"n":"20 lâminas de serra tico-tico","d":"Reserva de lâminas para madeira, MDF e plástico.","img":"fr24.webp","u":"https://s.shopee.com.br/7pv0IOu87z","top":true}]},{"cat":"Furar e parafusar","items":[{"n":"Parafusadeira e furadeira sem fio 12V com maleta","d":"Leve, com bateria e brocas na maleta.","img":"fr09.webp","u":"https://s.shopee.com.br/6L6CVddQhP","top":true},{"n":"Parafusadeira sem fio 48V com 2 baterias","d":"Duas baterias: não para no meio do projeto.","img":"fr10.webp","u":"https://s.shopee.com.br/6fj2uFkxZU","top":true},{"n":"Parafusadeira doméstica recarregável","d":"A mais em conta. Ótima para parafusos pequenos.","img":"fr11.webp","u":"https://s.shopee.com.br/6q2T6YkKEX","top":false},{"n":"Furadeira elétrica 900W","d":"Potente para furar madeira grossa.","img":"fr07.webp","u":"https://s.shopee.com.br/60TM71ehNJ","top":true},{"n":"Furadeira de impacto com acessórios","d":"Fura madeira, parede e metal.","img":"fr08.webp","u":"https://s.shopee.com.br/6VPchwcnMQ","top":true},{"n":"Brocas de 3 pontas para madeira","d":"Furos limpos, sem lascar a madeira.","img":"fr13.webp","u":"https://s.shopee.com.br/7AfJVAj3Yd","top":true},{"n":"Serra copo 16 peças","d":"Faz as rodinhas dos carrinhos num instante.","img":"fr12.webp","u":"https://s.shopee.com.br/70LtIrjgta","top":true},{"n":"Formões + brocas chatas","d":"Para encaixes e furos largos.","img":"fr14.webp","u":"https://s.shopee.com.br/60TM71nUvQ","top":false}]},{"cat":"Lixar e dar acabamento","items":[{"n":"Lixadeira Philco 250W","d":"Deixa tudo lisinho, sem farpa para a criança.","img":"fr15.webp","u":"https://s.shopee.com.br/9zzUsNd9Qe","top":true},{"n":"Lixadeira orbital compacta","d":"Pequena e leve, fácil de segurar.","img":"fr16.webp","u":"https://s.shopee.com.br/AAIv4gcW5h","top":false},{"n":"Suporte de lixa para furadeira + 30 discos","d":"Transforma a furadeira em lixadeira.","img":"fr17.webp","u":"https://s.shopee.com.br/AKcLGzbskk","top":true},{"n":"Kit 10 lixas Tigre","d":"Para o acabamento à mão.","img":"fr18.webp","u":"https://s.shopee.com.br/AUvlTIbFPn","top":false},{"n":"Micro retífica com 65 acessórios","d":"Lixa cantinhos e faz detalhes e entalhes.","img":"fr19.webp","u":"https://s.shopee.com.br/9Kjo59fgma","top":true}]},{"cat":"Medir, colar e prender","items":[{"n":"Grampos sargento de aperto rápido","d":"Seguram a peça enquanto você corta ou cola.","img":"fr20.webp","u":"https://s.shopee.com.br/7AfJVAwfTn","top":true},{"n":"Grampo sargento tipo F","d":"Aperto firme para colagens maiores.","img":"fr21.webp","u":"https://s.shopee.com.br/7KyjhTw28q","top":false},{"n":"Cola de madeira PVA extra forte","d":"Encaixes colados com força.","img":"fr22.webp","u":"https://s.shopee.com.br/7VI9tmvOnt","top":true},{"n":"Esquadro combinado com nível","d":"Medidas e ângulos sempre certos.","img":"fr23.webp","u":"https://s.shopee.com.br/7fba65ulSw","top":true}]}];
 const DOCS = {};
-PRODUCTS.forEach(p => p.blocks.forEach(b => (b.first || []).concat(b.items).forEach(i => { DOCS[i.id] = { item: i, product: p }; })));
+PRODUCTS.forEach(p => p.blocks.forEach(b => (b.first || []).concat(b.items).forEach(i => { if (!i.type) DOCS[i.id] = { item: i, product: p }; })));
 
 /* ---------- utilidades ---------- */
 const $ = s => document.querySelector(s);
@@ -295,6 +315,8 @@ function viewHome() {
   return h;
 }
 function docCard(i) {
+  if (i.type === 'list') return `<a class="doc lst" href="#/p/brq/l/${i.id}"><div class="dh"><img src="${A}img/${i.thumb}" alt="" loading="lazy"><div><h3>${esc(i.title)}</h3><div class="sub">${esc(i.sub)}</div></div></div>
+    <span class="a open wide">${ic('go', 22)}Ver as ferramentas</span></a>`;
   return `<div class="doc"><div class="dh"><img src="${A}img/${i.thumb}" alt="" loading="lazy"><div><h3>${esc(i.title)}</h3><div class="sub">${esc(i.sub)}</div></div></div>
     <div class="acts"><button class="a open" data-open="${i.id}">${ic('eye')}Abrir</button><button class="a" data-dl="${i.id}">${ic('dl')}Baixar</button><button class="a" data-pr="${i.id}">${ic('pr')}Imprimir</button></div></div>`;
 }
@@ -313,6 +335,19 @@ function viewFolder(p, b) {
     <div class="phero"><img src="${A}img/${p.cover}" alt=""><div><h1>${esc(b.head || b.title)}</h1><p>${esc(b.sub)}</p></div></div>
     <div class="tip">Para <b>imprimir</b>, toque em <b>Imprimir</b> no guia que você quer. As folhas saem em <b>tamanho real</b>, prontas para recortar.</div>
     ${(b.first || []).length ? `<div class="blk">Comece por aqui</div>${b.first.map(docCard).join('')}` : ''}<div class="blk">Os 8 guias de projetos</div>${b.items.map(docCard).join('')}<div class="foot"></div></div>`;
+}
+
+function viewTools() {
+  let h = topBack('Ferramentas Baratas') + `<div class="wrap">
+    <div class="thero"><span class="tag">BÔNUS 4</span><h1>Lista Secreta de Ferramentas Baratas</h1><p>Separamos as ferramentas com o melhor preço que encontramos, só de lojas bem avaliadas e com muitas vendas. Toque em <b>Ver oferta</b> para abrir a loja e comprar.</p></div>
+    <div class="tip">Os preços mudam toda hora na loja. Vale conferir o valor e o frete antes de finalizar.</div>`;
+  TOOLS.forEach(c => {
+    h += `<div class="blk">${esc(c.cat)}</div>` + c.items.map(t => `<a class="tool" href="${esc(t.u)}" target="_blank" rel="noopener" data-tool="${esc(t.n)}">
+      <span class="ti"><img src="${A}img/${t.img}" alt="" loading="lazy" width="320" height="320">${t.top ? '<em>🔥 Mais vendido</em>' : ''}</span>
+      <span class="tx"><b>${esc(t.n)}</b><small>${esc(t.d)}</small><span class="vo">Ver oferta ›</span></span></a>`).join('');
+  });
+  h += `<div class="foot">${CFG.SUPORTE_EMAIL ? 'Suporte: ' + esc(CFG.SUPORTE_EMAIL) : ''}</div></div>`;
+  return h;
 }
 
 /* ---------- arquivos: baixar, imprimir, ver ---------- */
@@ -470,6 +505,13 @@ function renderBase(h) {
   const app = $('#app');
   const mp = h.match(/^#\/p\/(\w+)(?:\/f\/(\w+))?/);
   const p = mp && PRODUCTS.find(x => x.id === mp[1]);
+  const ml = h.match(/^#\/p\/(\w+)\/l\/(\w+)/);
+  if (ml && p && owns(p.id)) {
+    app.innerHTML = viewTools(); window.scrollTo(0, 0);
+    $('#bk').onclick = () => { location.hash = '#/p/' + p.id; };
+    track('abriu', 'Bônus 4 · Ferramentas Baratas');
+    return;
+  }
   if (p && owns(p.id)) {
     const b = mp[2] && p.blocks.find(x => x.type === 'folder' && x.id === mp[2]);
     if (mp[2] && !b) { location.hash = '#/p/' + p.id; return; }
@@ -514,6 +556,7 @@ function route() {
 window.addEventListener('hashchange', route);
 /* cliques dos botões de cada guia */
 document.addEventListener('click', e => {
+  const tl = e.target.closest('[data-tool]'); if (tl) { track('ferramenta', 'Clicou: ' + tl.dataset.tool); return; }
   const o = e.target.closest('[data-open]'), d = e.target.closest('[data-dl]'), p = e.target.closest('[data-pr]');
   if (o) { S.restoreY = window.scrollY; S.fromList = true; location.hash = '#/ler/' + o.dataset.open; }
   else if (d) downloadDoc(d.dataset.dl);
