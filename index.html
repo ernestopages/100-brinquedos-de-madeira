@@ -280,7 +280,7 @@ footer{background:var(--dark);color:#9A8878;text-align:center;font-size:12.5px;p
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];var L=function(){if(L.d)return;L.d=1;t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)};if(b.readyState==='complete')setTimeout(L,0);else f.addEventListener('load',function(){setTimeout(L,0)});['touchstart','scroll','mousemove','keydown'].forEach(function(x){f.addEventListener(x,L,{once:true,passive:true})})}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1458665449774810');
-(function(){var d=new Date().toLocaleDateString('en-CA'),s=null;try{s=localStorage.getItem('indecfy_pv_day')}catch(e){}
+(function(){var n=new Date(),p=function(x){return(x<10?'0':'')+x},d=n.getFullYear()+'-'+p(n.getMonth()+1)+'-'+p(n.getDate()),s=null;try{s=localStorage.getItem('indecfy_pv_day')}catch(e){}
 if(s===d||/[?&]vid=/.test(location.search))return;try{localStorage.setItem('indecfy_pv_day',d)}catch(e){}
 window.indecfyPv='pv.'+Date.now().toString(36)+'.'+Math.random().toString(36).slice(2,10);
 fbq('track','PageView',{},{eventID:window.indecfyPv});})();
@@ -603,6 +603,9 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
   var txt=d[0].getDate()+', '+d[1].getDate()+' e '+d[2].getDate();
   document.querySelectorAll('.bf-dias').forEach(function(el){el.textContent=txt;});
   document.querySelectorAll('.ano').forEach(function(el){el.textContent=hoje.getFullYear();});
+})();
+/* carrosséis, imagens sob demanda e pop-ups: depois da primeira pintura */
+requestAnimationFrame(function(){setTimeout(function(){
 
   /* imagens sob demanda: cada bloco só baixa quando a pessoa chega perto */
   function loadImgs(root){root.dataset.ld=1;[].forEach.call(root.querySelectorAll('img[data-src]'),function(i){if(i.dataset.sizes)i.sizes=i.dataset.sizes;if(i.dataset.srcset)i.srcset=i.dataset.srcset;i.src=i.dataset.src;i.removeAttribute('data-src');});}
@@ -717,7 +720,7 @@ fbq('track','PageView',{},{eventID:window.indecfyPv});})();
       armedAt=0;showExit();
     });
   }
-})();
+},0);});
 </script>
 </body>
 </html>
