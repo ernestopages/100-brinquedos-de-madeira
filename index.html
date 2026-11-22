@@ -725,6 +725,9 @@ requestAnimationFrame(function(){setTimeout(function(){
   if(touch&&window.history&&history.pushState){
     var armed=false;
     function arm(){if(armed)return;armed=true;try{history.pushState({exit:1},'',location.href);}catch(e){}}
+    /* o Chrome e o Safari podem ignorar no "voltar" a entrada criada sem toque da pessoa,
+       por isso ela é criada no primeiro toque (ou, se não houver toque, aos 6 s) */
+    ['click','touchend','keydown'].forEach(function(ev){document.addEventListener(ev,arm,{passive:true});});
     setTimeout(arm,6000);
     window.addEventListener('popstate',function(){
       if(!armed||shown||leaving)return;
